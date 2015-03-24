@@ -8488,37 +8488,7 @@ public class ParentActivity extends BaseActivity implements FormListener {
 													.getQvar()+"_other");
 							CommonStaticClass.nextQuestion(ParentActivity.this);
 						}
-						else if(qName.equalsIgnoreCase("q239"))
-						{
-							if(getChoiceValue("qVisit") == 1)
-							{
-								CommonStaticClass.findOutNextSLNo(
-										qName,"qEnd1");
-								CommonStaticClass.nextQuestion(ParentActivity.this);
-							}
-							else if(getChoiceValue("qVisit") == 2)
-							{
-								CommonStaticClass.findOutNextSLNo(
-										qName,"qEnd2");
-								CommonStaticClass.nextQuestion(ParentActivity.this);
-							}
-							else if(getChoiceValue("qVisit") == 3)
-							{
-								CommonStaticClass.findOutNextSLNo(
-										qName,"qEnd3");
-								CommonStaticClass.nextQuestion(ParentActivity.this);
-							}
-							else
-							{
-								CommonStaticClass.findOutNextSLNo(
-										qName,
-										CommonStaticClass.questionMap.get(
-												CommonStaticClass.currentSLNo).getQnext1());
-								CommonStaticClass.nextQuestion(ParentActivity.this);
-								
-							}
-								
-						}
+						
 						else
 						{
 							CommonStaticClass.findOutNextSLNo(
@@ -12978,88 +12948,36 @@ else {
 //
 //						}
 //					}
-					if((qName.equalsIgnoreCase("q_1009_x") && code ==2) )
+					if(qName.equalsIgnoreCase("q224"))
 					{
-						if(CommonStaticClass.checkFor10BallNotChecked(dbHelper) )
+						if(getChoiceValue("qVisit") == 1)
 						{
-							nullifyWithInRange(qName, "q_1011");
-							CommonStaticClass.findOutNextSLNo(qName, "q_1011");
+							CommonStaticClass.findOutNextSLNo(
+									qName,"qEnd1");
+							CommonStaticClass.nextQuestion(ParentActivity.this);
+						}
+						else if(getChoiceValue("qVisit") == 2)
+						{
+							CommonStaticClass.findOutNextSLNo(
+									qName,"qEnd2");
+							CommonStaticClass.nextQuestion(ParentActivity.this);
+						}
+						else if(getChoiceValue("qVisit") == 3)
+						{
+							CommonStaticClass.findOutNextSLNo(
+									qName,"qEnd3");
 							CommonStaticClass.nextQuestion(ParentActivity.this);
 						}
 						else
 						{
-							
 							CommonStaticClass.findOutNextSLNo(
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQvar(),
+									qName,
 									CommonStaticClass.questionMap.get(
 											CommonStaticClass.currentSLNo).getQnext1());
 							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						
-					}
-					else if((qName.equalsIgnoreCase("q_1101_d") && code ==2) )
-					{
-						if(CommonStaticClass.checkFor11AallNotChecked(dbHelper) )
-						{
-							nullifyWithInRange(qName, "q_1103");
-							CommonStaticClass.findOutNextSLNo(qName, "q_1103");
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else
-						{
 							
-							CommonStaticClass.findOutNextSLNo(
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQvar(),
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQnext1());
-							CommonStaticClass.nextQuestion(ParentActivity.this);
 						}
-						
-					}
-					else if((qName.equalsIgnoreCase("q_1106_c") && code ==2) )
-					{
-						if(CommonStaticClass.checkFor11BallNotChecked(dbHelper) )
-						{
-							nullifyWithInRange(qName, "q_1111");
-							CommonStaticClass.findOutNextSLNo(qName, "q_1111");
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else
-						{
 							
-							CommonStaticClass.findOutNextSLNo(
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQvar(),
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQnext1());
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						
-					}
-					else if((qName.equalsIgnoreCase("q_307") ) )
-					{
-						int currentlyPregnant = 0;
-						if(code == 1)
-							currentlyPregnant = 1;
-						if(CommonStaticClass.checkFor307(dbHelper,currentlyPregnant) )
-						{
-							CommonStaticClass.findOutNextSLNo(
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQvar(),
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQnext1());
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else
-						{
-							
-							CommonStaticClass.showMyAlert(con, "Error",
-									"Incorrect Sum. Please recheck entries for Question Nos. " +
-									"301, 306a,b,c,d and 305a,b,c");
-						}
-						
 					}
 					
 					

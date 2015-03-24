@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	
 	private static String DB_PATH = "/mnt/sdcard/";
 	private static String SDDB_PATH = "/mnt/sdcard/external_sd/";
-	private static String DB_NAME = "eemlhecommunity.sqlite";
+	private static String DB_NAME = "eemlhefather.sqlite";
 	// Code by Sadia (For Baseline)
 	private static String DB_NAME_BASE = "HBIS2.sqlite";
 	private static String DB_PATH_BASE = "/mnt/sdcard/";
