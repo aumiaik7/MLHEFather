@@ -2285,7 +2285,7 @@ public class ParentActivity extends BaseActivity implements FormListener {
 			ln.addView(spinner, 0, layoutParamForSpin);
 			// added by imtiaz khan
 			if (CommonStaticClass.questionMap.get(CommonStaticClass.currentSLNo)
-					.getQvar().equalsIgnoreCase("q1") 
+					.getQvar().equalsIgnoreCase("q3_4") 
 					) {
 
 				// for Reading data from a specific table like user, member etc.
@@ -2300,7 +2300,7 @@ public class ParentActivity extends BaseActivity implements FormListener {
 					
 					if (CommonStaticClass.questionMap
 							.get(CommonStaticClass.currentSLNo).getQvar()
-							.equalsIgnoreCase("q1")
+							.equalsIgnoreCase("q3_4")
 
 							) {
 						sql = String.format("select * from tblUser");
@@ -2312,7 +2312,7 @@ public class ParentActivity extends BaseActivity implements FormListener {
 						do {
 							if (CommonStaticClass.questionMap
 									.get(CommonStaticClass.currentSLNo).getQvar()
-									.equalsIgnoreCase("q1"))
+									.equalsIgnoreCase("q3_4"))
 
 							{
 								users.add(mCursor.getString(mCursor
@@ -2513,7 +2513,7 @@ public class ParentActivity extends BaseActivity implements FormListener {
 					if (parent.getItemAtPosition(pos).toString().length() > 0) {
 						if (CommonStaticClass.questionMap
 								.get(CommonStaticClass.currentSLNo).getQvar()
-								.equalsIgnoreCase("q1") 
+								.equalsIgnoreCase("q3_4") 
 								)
 							sResCode = parent
 									.getItemAtPosition(pos)
@@ -2620,7 +2620,7 @@ public class ParentActivity extends BaseActivity implements FormListener {
 										|| CommonStaticClass.questionMap
 												.get(CommonStaticClass.currentSLNo)
 												.getQvar()
-												.equalsIgnoreCase("q1")
+												.equalsIgnoreCase("q3_4")
 										|| CommonStaticClass.questionMap
 												.get(CommonStaticClass.currentSLNo)
 												.getQvar()
@@ -2700,6 +2700,13 @@ public class ParentActivity extends BaseActivity implements FormListener {
 
 	private void updateTableDataFrmComboBox() {
 		// TODO Auto-generated method stub
+		if(sResCode.equalsIgnoreCase(""))
+		{
+			CommonStaticClass
+			.showMyAlert(con, "Notification",
+					"Please Select an Item");
+			return;
+		}
 		try {
 			String sql = "";
 			if ((CommonStaticClass.questionMap
@@ -7142,10 +7149,10 @@ public class ParentActivity extends BaseActivity implements FormListener {
 							"Household ID is inconsistent");
 					return;
 				}*/
-				if (mother.length() < 2) { // As if (Integer.valueOf(mother) >
+				if (mother.length() < 1) { // As if (Integer.valueOf(mother) >
 											// 8) length cannot be 2 digit
 					CommonStaticClass.showFinalAlert(con,
-							"Mother ID is inconsistent");
+							"Father ID is inconsistent");
 					return;
 				}
 
@@ -7169,7 +7176,7 @@ public class ParentActivity extends BaseActivity implements FormListener {
 				if (!mother
 						.equalsIgnoreCase(txtmotherIDRe.getText().toString())) {
 					CommonStaticClass.showFinalAlert(con,
-							"Mother ID is inconsistent");
+							"Father ID is inconsistent");
 					return;
 				}
 
@@ -7191,7 +7198,7 @@ public class ParentActivity extends BaseActivity implements FormListener {
 				}*/
 				if (Integer.valueOf(mother) > 8) {
 					CommonStaticClass.showFinalAlert(con,
-							"Mother ID is inconsistent");
+							"Father ID is inconsistent");
 					return;
 				}
 
@@ -11599,14 +11606,14 @@ else {
 
 	}
 
-	private void setDataFromFrmNumericTwo(EditText infoText, String q1,
+	private void setDataFromFrmNumericTwo(EditText infoText, String q3_4,
 			String q2, String table) {
 		// TODO Auto-generated method stub
-		String sql1 = "Select " + q1 + " from " + table + " where dataid='"
+		String sql1 = "Select " + q3_4 + " from " + table + " where dataid='"
 				+ CommonStaticClass.dataId + "'";
 		String sql2 = "Select " + q2 + " from " + table + " where dataid='"
 				+ CommonStaticClass.dataId + "'";
-		float value = dataFromFrmNumericTwo(sql1, q1)
+		float value = dataFromFrmNumericTwo(sql1, q3_4)
 				- dataFromFrmNumericTwo(sql2, q2);
 		infoText.setText(value + "");
 
@@ -12948,40 +12955,7 @@ else {
 //
 //						}
 //					}
-					if(qName.equalsIgnoreCase("q224"))
-					{
-						if(getChoiceValue("qVisit") == 1)
-						{
-							CommonStaticClass.findOutNextSLNo(
-									qName,"qEnd1");
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else if(getChoiceValue("qVisit") == 2)
-						{
-							CommonStaticClass.findOutNextSLNo(
-									qName,"qEnd2");
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else if(getChoiceValue("qVisit") == 3)
-						{
-							CommonStaticClass.findOutNextSLNo(
-									qName,"qEnd3");
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-						}
-						else
-						{
-							CommonStaticClass.findOutNextSLNo(
-									qName,
-									CommonStaticClass.questionMap.get(
-											CommonStaticClass.currentSLNo).getQnext1());
-							CommonStaticClass.nextQuestion(ParentActivity.this);
-							
-						}
-							
-					}
-					
-					
-					else if (qtoGo != null && qtoGo != ""
+					 if (qtoGo != null && qtoGo != ""
 							&& !nextToGo.equalsIgnoreCase("END")) {
 						CommonStaticClass.currentSLNo = CommonStaticClass
 								.giveTheSLNo(qtoGo) - 1;
